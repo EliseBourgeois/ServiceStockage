@@ -76,3 +76,12 @@ fos_user:
    from_email:
         address: "testsymfo@symfo.com"
         sender_name: "elise"
+
+#vich_uploader configuration
+vich_uploader:
+    db_driver: orm
+    mappings:
+      stockage:
+        uri_prefix: /stockage/
+        upload_destination: '%kernel.root_dir%/../web/stockage/'
+        namer: vich_uploader.namer_uniqid
