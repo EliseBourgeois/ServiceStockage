@@ -19,7 +19,7 @@
             <tr>
                 <td><a href="{{ path('stockage_show', { 'id': stockage.id }) }}">{{ stockage.id }}</a></td>
                 {#<td>{{ stockage.fichier }}</td>#}
-                <td><a href="/web{{ vich_uploader_asset(stockage, 'stockageFile') }}"target="_blank">{{ stockage.fichier }}</a></td>
+                <td><a href="/web{{ vich_uploader_asset(stockage, 'stockageFile') }}"download>{{ stockage.fichier }}</a></td>
                 <td>{{ stockage.tailleFic }}mo</td>
                 <td>{% if stockage.updatedAt %}{{ stockage.updatedAt|date('d-m-Y') }}{% endif %}</td>
                 <td>
