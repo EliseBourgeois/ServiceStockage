@@ -1,47 +1,46 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Stockages list</h1>
+    <h1>Mes fichiers</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Iduser</th>
                 <th>Fichier</th>
-                <th>Taillefic</th>
-                <th>Stockagename</th>
-                <th>Updatedat</th>
+                <th>Taille du fichier</th>
+                <th>Mis en ligne le</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for stockage in stockages %}
+        {% if app.user.id == stockage.idUser%}
             <tr>
                 <td><a href="{{ path('stockage_show', { 'id': stockage.id }) }}">{{ stockage.id }}</a></td>
-                <td>{{ stockage.idUser }}</td>
-                <td>{{ stockage.fichier }}</td>
-                <td>{{ stockage.tailleFic }}</td>
-                <td>{{ stockage.stockageName }}</td>
-                <td>{% if stockage.updatedAt %}{{ stockage.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                {#<td>{{ stockage.fichier }}</td>#}
+                <td><a href="/web{{ vich_uploader_asset(stockage, 'stockageFile') }}"target="_blank">{{ stockage.fichier }}</a></td>
+                <td>{{ stockage.tailleFic }}mo</td>
+                <td>{% if stockage.updatedAt %}{{ stockage.updatedAt|date('d-m-Y') }}{% endif %}</td>
                 <td>
                     <ul>
+                        {#<li>#}
+                            {#<a href="{{ path('stockage_show', { 'id': stockage.id }) }}">Voir</a>#}
+                        {#</li>#}
                         <li>
-                            <a href="{{ path('stockage_show', { 'id': stockage.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('stockage_edit', { 'id': stockage.id }) }}">edit</a>
+                            <a href="{{ path('stockage_edit', { 'id': stockage.id }) }}">Editer</a>
                         </li>
                     </ul>
                 </td>
             </tr>
+        {% endif %}
         {% endfor %}
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('stockage_new') }}">Create a new stockage</a>
+            <a href="{{ path('stockage_new') }}">Uploader un nouveau fichier</a>
         </li>
     </ul>
 {% endblock %}

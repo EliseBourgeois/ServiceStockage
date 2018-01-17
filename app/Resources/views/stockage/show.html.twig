@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Stockage</h1>
+    <h1>Mon fichier</h1>
 
     <table>
         <tbody>
@@ -27,7 +27,7 @@
             </tr>
             <tr>
                 <th>Updatedat</th>
-                <td>{% if stockage.updatedAt %}{{ stockage.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if stockage.updatedAt %}{{ stockage.updatedAt|date('d-m-Y') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>

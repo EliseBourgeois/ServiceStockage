@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichFileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class StockageType extends AbstractType
 {
@@ -15,6 +16,7 @@ class StockageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('idUser')->add('fichier')->add('tailleFic')->add('stockageName')->add('stockageFile',VichFileType::class);
+
     }/**
      * {@inheritdoc}
      */

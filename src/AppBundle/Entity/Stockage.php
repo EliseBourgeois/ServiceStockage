@@ -84,8 +84,7 @@ class Stockage
      */
     public function setIdUser($idUser)
     {
-        $this->idUser = $idUser;
-
+        $this->idUser = $this->getUser()->getId();
         return $this;
     }
 
@@ -155,8 +154,11 @@ class Stockage
     {
         $this->stockageFile = $stockage;
 
-        if ($stockage)
+        if ($stockage){
             $this->updatedAt = new \DateTimeImmutable();
+
+        }
+
 
         return $this;
     }
