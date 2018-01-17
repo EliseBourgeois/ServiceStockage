@@ -50,9 +50,15 @@
                     <menu>
                         <button id="updateDetails">Souscription</button>
                     </menu>
+                {% if app.user.username == "admin" %}
+                    {#Vue en tant qu'admin#}
+                    <h2>Administration</h2>
+
+                {% endif %}
                 {% else %}
                     <p>Il faut se connecter pour pouvoir déposer un fichier ici</p>
                     <p><a href="/web/app_dev.php/login">Connexion</a></p>
+                    <p><a href="/web/app_dev.php/register">S'inscrire</a></p>
                 {% endif %}
 
             </div>
